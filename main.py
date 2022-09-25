@@ -37,7 +37,7 @@ def get_weather(region):
                       'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
     }
 #     key = config["weather_key"]
-    key = c28f0da3a0fe4d6ba1777fd97f043a77
+    key = "c28f0da3a0fe4d6ba1777fd97f043a77"
     region_url = "https://geoapi.qweather.com/v2/city/lookup?location={}&key={}".format(region, key)
     response = get(region_url, headers=headers).json()
     if response["code"] == "404":

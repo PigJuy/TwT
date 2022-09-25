@@ -36,15 +36,14 @@ def get_weather(region):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
                       'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
     }
-#     key = config["weather_key"]
-    key = "07d06ff48550430f9a7e0446862e5596"
-    region_url = "https://geoapi.qweather.com/v2/city/lookup?location=%E9%94%A6%E6%B1%9F%E5%8C%BA&key=07d06ff48550430f9a7e0446862e5596".format(region, key)
+    key = config["weather_key"]
+    region_url = "https://geoapi.qweather.com/v2/city/lookup?location={}&key={}".format(region, key)
     response = get(region_url, headers=headers).json()
     if response["code"] == "404":
         print("推送消息失败，请检查地区名是否有误！")
         os.system("pause")
         sys.exit(1)
-    elif response["code"] == "40":
+    elif response["code"] == "401":
         print("推送消息失败，请检查和风天气key是否正确！")
         os.system("pause")
         sys.exit(1)

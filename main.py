@@ -44,9 +44,8 @@ def get_weather(region):
         print("推送消息失败，请检查地区名是否有误！")
         os.system("pause")
         sys.exit(1)
-    elif response["code"] == "401":
+    elif response["code"] == "40":
         print("推送消息失败，请检查和风天气key是否正确！")
-        print(code)
         os.system("pause")
         sys.exit(1)
     else:
